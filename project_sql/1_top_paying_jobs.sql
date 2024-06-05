@@ -11,8 +11,11 @@ FROM
 LEFT JOIN company_dim ON job_postings_fact.company_id = company_dim.company_id
 WHERE
     job_title_short = 'Data Analyst' AND
-    job_location = 'Anywhere' AND
+    job_location LIKE '%Australia%' AND
     salary_year_avg IS NOT NULL
 ORDER BY
     salary_year_avg DESC
-    LIMIT 10; 
+; 
+
+/* Important to note that this only includes postings 
+where salary is not null ie not disclosed on the ad */
