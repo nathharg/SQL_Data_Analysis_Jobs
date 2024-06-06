@@ -124,7 +124,7 @@ salary_year_avg DESC;
 ```
 ![Skills for Top Paying Jobs](project_sql/assets/TopPayingSkills.png)
 
-**Key Takeaways:**
+**Key Findings:**
 
 The results of this query shows the dominance of programming languages remaining key in high paying junior roles. 
 
@@ -240,7 +240,6 @@ Airflow, Snowflake and GCP; tools used for managing big data, are highly sought 
 # Conclusions
 
 This project set out to uncover some insights about the job market for data analysts, specifically, what skills are highly valued by employers. 
-
 
 To summarise, the data suggests that the demand for foundational data analysis skills remains strong, with SQL, Excel and Python still expected and valued. 
 The landscape is changing however, with cloud tools increasing in value from employers and expertise in managing big data on the rise. Data analysts wanting to maximise the earning potential of their profession should look towards expertise within niche areas of the field. 
