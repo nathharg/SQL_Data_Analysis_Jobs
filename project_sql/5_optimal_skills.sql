@@ -9,7 +9,6 @@ WITH skills_demand AS (
     INNER JOIN skills_dim ON skills_job_dim.skill_id = skills_dim.skill_id
     WHERE job_title_short = 'Data Analyst'
     AND salary_year_avg IS NOT NULL
-    AND job_work_from_home = TRUE
     GROUP BY skills_dim.skill_id
 ), average_salary AS (
     SELECT
@@ -21,12 +20,10 @@ WITH skills_demand AS (
     WHERE  
     job_title_short = 'Data Analyst'
     AND salary_year_avg IS NOT NULL
-    AND job_work_from_home = TRUE
     GROUP BY skills_job_dim.skill_id
 )
 
 SELECT
-    skills_demand.skill_id,
     skills_demand.skills,
     demand_count,
     avg_salary
@@ -34,9 +31,8 @@ FROM
     skills_demand
 INNER JOIN average_salary ON skills_demand.skill_id = average_salary.skill_id
 WHERE
-    demand_count > 10
+    demand_count >  50
 ORDER BY
-        avg_salary DESC,
-        demand_count DESC
-
-LIMIT 25;
+        avg_salary DESC
+        
+LIMIT 15;

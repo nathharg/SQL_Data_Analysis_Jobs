@@ -47,3 +47,21 @@ WHERE
 ORDER BY
     salary_year_avg DESC
     LIMIT 10; 
+
+
+SELECT 
+    DISTINCT skills,
+    type
+FROM skills_job_dim
+JOIN skills_dim 
+ON skills_job_dim.skill_id = skills_dim.skill_id
+WHERE job_id IN (
+        SELECT job_id
+        FROM job_postings_fact
+            LEFT JOIN company_dim ON company_dim.company_id = job_postings_fact.company_id
+        WHERE job_title_short = 'Data Analyst'
+            AND job_title LIKE '%Junior%'
+            AND salary_year_avg IS NOT NULL
+        ORDER BY salary_year_avg DESC
+        LIMIT 10
+    );
